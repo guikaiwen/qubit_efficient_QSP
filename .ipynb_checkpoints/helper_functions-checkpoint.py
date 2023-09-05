@@ -33,13 +33,13 @@ def row_to_column_vector(row_vector: np.ndarray) -> np.ndarray:
     return row_vector.reshape(-1, 1)
 
 
-def generate_normalized_random_vec(n: int) -> np.ndarray:
+def generate_normalized_random_feature_vec(n: int) -> np.ndarray:
     """
-    Function to generate a normalized random value vector
+    Function to generate a normalized random feature value vector
     
     @param n: total number of data qubit
     
-    @return normalized_v: an array of size 2^n that holds the generated nomalized vector
+    @return normalized_v: an array of size 2^n that holds the generated nomalized feature values
     """
     vec = []
     for i in range(2 ** n):
