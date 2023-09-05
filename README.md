@@ -2,11 +2,11 @@
 
 This repo provides two examples of using our quantum state preparation functions.
 
-You can directly call the QSP function (implemented in qsp_circ_construction_qubit_efficient.py) to prepare an arbitrary quantum state, as demonstrated in QSP_Method_Call_Demo.ipynb.
+You can directly call the QSP function `qsp_qubit_eff` (implemented in `qsp_circ_construction_qubit_efficient.py`) to prepare an arbitrary quantum state, as demonstrated in `QSP_Method_Call_Demo.ipynb`.
 
-We also provide a detailed implementation walkthrough in [Detailed Implementation] QSP.ipynb.
+We also provide a detailed implementation walkthrough in `[Detailed Implementation] QSP.ipynb`.
 
-We recommend first-time readers start with the walk-through in QSP_Method_Call_Demo.ipynb.
+We recommend first-time readers start with the walk-through in `QSP_Method_Call_Demo.ipynb`.
 
 -------------------------------
 The current QSP operation demonstrated in this repo has the following circuit complexity numbers:
