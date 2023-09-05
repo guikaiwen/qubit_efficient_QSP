@@ -15,6 +15,7 @@ A. $O(N)$ depth using generalized multi-controlled Ry gates
 
 B. No additional ancilla qubits required (total of $O(\log(N))$ qubits)
 
+(Note that N = 2^n is the total number of amplitude values encoded, and n can also represent the number of data qubits.)
 
 See https://github.com/guikaiwen/QSP_Paper_Artifact and https://arxiv.org/pdf/2303.02131.pdf for an alternative method that has the following circuit complexity numbers:
 
