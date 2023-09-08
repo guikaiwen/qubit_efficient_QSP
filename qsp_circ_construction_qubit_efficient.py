@@ -73,7 +73,7 @@ def qsp_qubit_eff(WF_array: np.ndarray, mode='initialization', orig_circ=None) -
     
     @param WF_array: the entire wave function array vector values to be encoded
     @param mode: can be in 2 modes, initialization mode to contruct the qsp circuit from the |0> state, or append mode to append the qsp circuit onto another circuit
-    @param orig_circ, original circuit to pass in if set in append mode
+    @param orig_circ, original circuit to pass in if set to append mode
     
     @return circ: the constructed quantum circuit
     """
