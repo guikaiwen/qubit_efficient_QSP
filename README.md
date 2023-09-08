@@ -8,7 +8,7 @@ We also provide a detailed implementation walkthrough in `[Detailed Implementati
 
 We recommend first-time readers start with the walk-through in `QSP_Method_Call_Demo.ipynb`.
 
-We also provide a performance comparison against the existing Qiskit's `.initialize` function and the Braket's unitary operation.
+We also provide a performance comparison in `Comparison_to_Other_Methods.ipynb` against the existing Qiskit's `.initialize` function and the Braket's unitary operation.
 
 -------------------------------
 ## Prerequisites
