@@ -33,19 +33,37 @@ def row_to_column_vector(row_vector: np.ndarray) -> np.ndarray:
     return row_vector.reshape(-1, 1)
 
 
-def generate_normalized_random_vec(n: int) -> np.ndarray:
+def generate_normalized_real_array(n: int) -> np.ndarray:
     """
-    Function to generate a normalized random value vector
+    Function to generate a normalized random real value vector
     
     @param n: total number of data qubit
     
-    @return normalized_v: an array of size 2^n that holds the generated nomalized vector
+    @return normalized_v: an array of size 2^n that holds the generated nomalized real vector
     """
     vec = []
     for i in range(2 ** n):
         vec.append(random.random())
-    normalized_v = np.array(vec) / np.sqrt(np.sum(np.array(vec)**2)) # need to normalize the vector
-    return normalized_v
+    normalized_real_array = np.array(vec) / np.sqrt(np.sum(np.array(vec)**2)) # need to normalize the vector
+    return normalized_real_array
+
+
+def generate_normalized_complex_array(n: int) -> np.ndarray:
+    """
+    Function to generate a normalized random complex value vector
+    
+    @param n: total number of data qubit
+    
+    @return normalized_v: an array of size 2^n that holds the generated nomalized complex vector
+    """
+    array_length = 2 ** n
+    # Generate a complex array with random complex values that may contain negatives
+    complex_array = (np.random.rand(array_length) - 0.5) + 1j * (np.random.rand(array_length) - 0.5)
+
+    # Normalize the complex array
+    normalized_complex_array = complex_array / np.linalg.norm(complex_array)
+
+    return normalized_complex_array
 
 
 def binary_to_decimal(binary: str) -> int:
