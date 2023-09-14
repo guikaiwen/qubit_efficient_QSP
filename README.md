@@ -10,7 +10,7 @@ We recommend first-time readers start with the walk-through in `QSP_Method_Call_
 
 We also provide a performance comparison in `Comparison_to_Other_Methods.ipynb` against the existing Qiskit's `.initialize` function and the Braket's unitary operation.
 
-<img width="573" alt="Performance Comparison" src="https://github.com/guikaiwen/qubit_efficient_QSP/assets/24789128/6672ce54-d52a-4081-ad26-a3c8b6ba7703">
+<img width="607" alt="Performance Comparison" src="https://github.com/guikaiwen/qubit_efficient_QSP/assets/24789128/4e5fd639-efd7-401e-8f75-98c33168b34b">
 
 
 -------------------------------
