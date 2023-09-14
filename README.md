@@ -10,7 +10,7 @@ We recommend first-time readers start with the walk-through in `QSP_Method_Call_
 
 We also provide a performance comparison in `Comparison_to_Other_Methods.ipynb` against the existing Qiskit's `.initialize` function and the Braket's unitary operation.
 
-<img width="573" alt="Performance Comparison" src="https://github.com/guikaiwen/qubit_efficient_QSP/assets/24789128/6672ce54-d52a-4081-ad26-a3c8b6ba7703">
+<img width="607" alt="Performance Comparison" src="https://github.com/guikaiwen/qubit_efficient_QSP/assets/24789128/4e5fd639-efd7-401e-8f75-98c33168b34b">
 
 
 -------------------------------
@@ -22,11 +22,15 @@ pip install amazon-braket-sdk
 ```
 See https://pypi.org/project/amazon-braket-sdk/ for more installation details.
 
+The current Braket SDK version is `1.55.0`.
+
 The IBM Qiskit Python SDK can be installed with pip on your local machine as follows:
 ```ruby
 pip install qiskit
 ```
 See https://qiskit.org/documentation/getting_started.html for more installation details.
+
+The current Qiskit SDK version is `0.44.1`.
 
 -------------------------------
 The current QSP operation demonstrated in this repo has the following circuit complexity numbers:
