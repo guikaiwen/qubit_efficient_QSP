@@ -2,7 +2,11 @@
 
 This repo provides two examples of using our quantum state preparation functions.
 
-You can directly call the QSP function `qsp_qubit_eff` (implemented in `qsp_circ_construction_qubit_efficient.py`) to prepare an arbitrary quantum state, as demonstrated in `QSP_Method_Call_Demo.ipynb`.
+You can directly call the QSP function `qsp_qubit_eff` (implemented in `qsp_circ_construction_qubit_efficient.py`) to prepare an arbitrary quantum state, as demonstrated in `QSP_Method_Call_Demo.ipynb`. That is, the function prepares the wave function state vector
+
+$$U_{\mathrm{QSP}} |0^n\rangle = |\psi\rangle = \frac{1}{\lVert \mathbf{x}\rVert}\sum_{i=0}^{2^{n-1}}x_i |i\rangle, x_i \in \mathbb{C}$$
+
+via sequence of multi-control Ry and multi-control Rz gates, using the method described by Mottonen et al. 2004 (https://arxiv.org/pdf/quant-ph/0407010.pdf).
 
 We also provide a detailed implementation walkthrough in `[Detailed Implementation] QSP.ipynb`.
 
