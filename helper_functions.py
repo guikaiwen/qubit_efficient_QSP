@@ -66,6 +66,22 @@ def generate_normalized_complex_array(n: int) -> np.ndarray:
     return normalized_complex_array
 
 
+def generate_normalized_real_sparse_array(n: int, none_zero_index_array: np.ndarray) -> np.ndarray:
+    """
+    Function to generate a normalized random real value vector
+    
+    @param n: total number of data qubit
+    @param none_zero_index_array: a 1d array that stores the index of the non zero elements. E.g., a quantum state of |a> = 0.6|00> + 0.8|11> would have the array as [0, 3]
+    
+    @return normalized_v: an array of size 2^n that holds the generated nomalized real vector
+    """
+    vec = [0] * (2 ** n)
+    for i in range(len(none_zero_index_array)):
+        vec[none_zero_index_array[i]] = random.random()
+    normalized_real_array = np.array(vec) / np.sqrt(np.sum(np.array(vec)**2)) # need to normalize the vector
+    return normalized_real_array
+
+
 def binary_to_decimal(binary: str) -> int:
     """
     Function to convert a binary number into a decimal number
