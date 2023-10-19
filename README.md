@@ -16,7 +16,7 @@ via sequence of multi-control Ry and multi-control Rz gates, using the method de
 
 <img width="607" alt="Performance Comparison" src="https://github.com/guikaiwen/qubit_efficient_QSP/assets/24789128/4e5fd639-efd7-401e-8f75-98c33168b34b">
 
-4. We provide some complexity analysis of sparse state preparation in `Sparse_state_cost_benchmark.ipynb`.
+4. We provide some performance testings and complexity analysis of sparse state preparation in `Sparse_state_cost_benchmark.ipynb`.
 
 -------------------------------
 ## Prerequisites
