@@ -2,13 +2,13 @@
 
 This repo provides implementations and performance testings for quantum state preparation circuits. 
 
-That is, we create the circuit operation of:
+That is, given an arbitrary list of $2^n$ amplitudes, we create a quantum circuit that creates the corresponding $n$-qubit state:
 
 $$U_{\mathrm{QSP}} |0^n\rangle = |\psi\rangle = \frac{1}{\lVert \mathbf{x}\rVert}\sum_{i=0}^{2^{n-1}}x_i |i\rangle, x_i \in \mathbb{C}$$
 
-via sequence of multi-control Ry and multi-control Rz gates, using the method described by Mottonen et al. 2004 (https://arxiv.org/pdf/quant-ph/0407010.pdf).
+The quantum circuit consists of a sequence of multi-control Ry and multi-control Rz gates, using the method described by Mottonen et al. 2004 (https://arxiv.org/pdf/quant-ph/0407010.pdf).
 
-1. You can directly call the QSP function `qsp_qubit_eff` (implemented in `qsp_circ_construction_qubit_efficient.py`) to prepare an arbitrary quantum state, as demonstrated in `QSP_Method_Call_Demo.ipynb`. That is, the function prepares the wave function state vector
+1. You can directly call the QSP function `qsp_qubit_eff` (implemented in `qsp_circ_construction_qubit_efficient.py`) to prepare an arbitrary quantum state, as demonstrated in `QSP_Method_Call_Demo.ipynb`. That is, the function prepares the wave function state vector.
 
 2. We also provide a detailed implementation walkthrough in `[Detailed Implementation] QSP.ipynb`. We recommend first-time readers start with the walk-through in `QSP_Method_Call_Demo.ipynb`.
 
