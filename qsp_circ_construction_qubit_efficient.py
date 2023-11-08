@@ -75,7 +75,9 @@ def full_multi_control_rotation_gate(s: int, j: int, n: int, circ: braket.circui
     @param j: as it appear in equation 4.30 in the ML with QC book
     @param n: total number of qubits for the state being prepared
     @param circ: quantum circuit to operate on
-    @param WF_array: the entire wave function array vector values to be encoded 
+    @param amplitude_array: the amplitude value vector for wave function array vector
+    @param phase_array: the phase value vector for wave function array vector
+    @tolerance: a float number to determine if a number is close enough to zero in order to be treated as zero
     """
     ry_rotation_angle = compute_ry_rotation_angle(s, j, amplitude_array)
     rz_rotation_angle = compute_rz_rotation_angle(s, j, phase_array)
@@ -96,7 +98,7 @@ def qsp_qubit_eff(normalized_complex_array: np.ndarray) -> braket.circuits.circu
     """
     Function to construct the full QSP circuit using the full multi control rotation gate
     
-    @param WF_array: the entire wave function array vector values to be encoded
+    @param normalized_complex_array: the entire wave function array vector values (can contain complex numbers) to be encoded
     
     @return circ: the constructed quantum circuit
     """
