@@ -16,7 +16,7 @@ The quantum circuit consists of a sequence of multi-control Ry and multi-control
 
 <img width="607" alt="Performance Comparison" src="https://github.com/guikaiwen/qubit_efficient_QSP/assets/24789128/4e5fd639-efd7-401e-8f75-98c33168b34b">
 
-4. We provide some performance testings and complexity analysis of sparse state preparation in `Sparse_state_cost_benchmark.ipynb`.
+4. We provide some performance testings and complexity analysis of sparse state preparation for Braket in `Sparse_state_cost_benchmark.ipynb` and for Qiskit in `Qiskit_Sparse_State_Gate_Count.ipynb`.
 
 -------------------------------
 ## Prerequisites
