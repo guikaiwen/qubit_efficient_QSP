@@ -12,7 +12,7 @@ The quantum circuit consists of a sequence of multi-control Ry and multi-control
 
 2. We also provide a detailed implementation walkthrough in `QSP_detailed_implementation.ipynb`. We recommend first-time readers start with the walk-through in `QSP_method_call_demo.ipynb`.
 
-3. We compare our implementation performance against the existing Qiskit's `.initialize` function and the Braket's unitary operation in `Comparison_to_Other_Methods.ipynb`.
+3. We compare our implementation performance for dense quantum states against the existing Qiskit's `.initialize` function and the Braket's unitary operation in `dense_state_comparisons.ipynb`.
 
 <img width="756" alt="Screenshot 2023-11-08 at 4 11 17 PM" src="https://github.com/guikaiwen/qubit_efficient_QSP/assets/24789128/8dfcc84d-40c8-42d2-9f36-d9dbbd931f71">
 
