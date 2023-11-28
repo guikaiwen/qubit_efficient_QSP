@@ -31,7 +31,7 @@ The IBM Qiskit Python SDK can be installed with pip on your local machine as fol
 pip install qiskit
 ```
 
-See `requirements.txt` for other required Python packages.
+See `requirements.txt` for other required Python packages and corresponding versions.
 
 -------------------------------
 The current QSP operation demonstrated in this repo has the following circuit complexity numbers:
