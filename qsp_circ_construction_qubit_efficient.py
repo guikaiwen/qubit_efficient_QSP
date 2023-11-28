@@ -12,17 +12,22 @@ def compute_rz_rotation_angle(s: int, j: int, phase_array: np.ndarray) -> float:
     """
     Function to compute a particular beta_{s,j} angle according to the equation above
     
+    (Note that this implementation uses Numpy's vectorization for better classical paralellization. 
+    Mathematically it is equivalent to the implementation in qsp_detailed_implementation.ipynb)
+    
     @param s: as it appear in equation 4.30 in the ML with QC book
     @param j: as it appear in equation 4.30 in the ML with QC book
     @param phase_array: the entire wave function array vector phase values to be encoded
     
     @return: a float/double value that holds the computed phase angle
     """
-    sum_top = 0.0
-    for l in range(0, 2 ** (s - 1) - 1 + 1): # compute the sum on the numerator
-        current_var = phase_array[(2 * j - 1) * 2 ** (s - 1) + l] - phase_array[(2 * j - 2) * 2 ** (s - 1) + l]
-        sum_top += current_var
-    
+    # Indices for the sum calculation
+    indices_top = (2 * j - 1) * 2 ** (s - 1) + np.arange(2 ** (s - 1))
+    indices_bottom = (2 * j - 2) * 2 ** (s - 1) + np.arange(2 ** (s - 1))
+
+    # Compute the sum of phase differences
+    sum_top = np.sum(phase_array[indices_top] - phase_array[indices_bottom])
+
     return sum_top / (2 ** (s - 1))
 
 
@@ -30,26 +35,28 @@ def compute_ry_rotation_angle(s: int, j: int, amplitude_array: np.ndarray) -> fl
     """
     Function to compute a particular beta_{s,j} angle according to the equation above
     
+    (Note that this implementation uses Numpy's vectorization for better classical paralellization. 
+    Mathematically it is equivalent to the implementation in qsp_detailed_implementation.ipynb)
+    
     @param s: as it appear in equation 4.30 in the ML with QC book
     @param j: as it appear in equation 4.30 in the ML with QC book
-    @param WF_array: the entire wave function array vector amplitude values to be encoded
+    @param amplitude_array: the entire wave function array vector amplitude values to be encoded
     
     @return: a float/double value that holds the computed angle 
     """
-    sum_top = 0.0
-    for l in range(0, 2 ** (s - 1) - 1 + 1): # compute the sum on the numerator
-        current_var = amplitude_array[(2 * j - 1) * 2 ** (s - 1) + l]
-        sum_top += current_var ** 2
-    
-    sum_bottom = 0.0
-    for l in range(0, 2 ** s - 1 + 1): # compute the sum on the denominator
-        current_var = amplitude_array[(j - 1) * 2 ** s + l]
-        sum_bottom += current_var ** 2
-        
-    if sum_bottom == 0: # edge case: arcsin denominator is zero
+    # Indices for sum_top computation
+    top_indices = (2 * j - 1) * 2 ** (s - 1) + np.arange(2 ** (s - 1))
+    sum_top = np.sum(amplitude_array[top_indices] ** 2)
+
+    # Indices for sum_bottom computation
+    bottom_indices = (j - 1) * 2 ** s + np.arange(2 ** s)
+    sum_bottom = np.sum(amplitude_array[bottom_indices] ** 2)
+
+    # Handling the edge case where denominator is zero
+    if np.isclose(sum_bottom, 0.0):
         return 0.0
-    else:
-        return 2 * np.arcsin(np.sqrt(sum_top) / np.sqrt(sum_bottom))
+
+    return 2 * np.arcsin(np.sqrt(sum_top / sum_bottom))
     
     
 def x_gate_sequence(s: int, j: int, n: int, circ: braket.circuits.circuit.Circuit):
@@ -58,8 +65,8 @@ def x_gate_sequence(s: int, j: int, n: int, circ: braket.circuits.circuit.Circui
     
     @param s: as it appear in the equation above
     @param j: as it appear in the equation above
-    n: total number of qubits for the state being prepared
-    circ: quantum circuit to operate on
+    @param n: total number of qubits for the state being prepared
+    @param circ: quantum circuit to operate on
     """
     binary_j = bin(j - 1).replace("0b", "").zfill(n - s) # get the binary representation of the current j
     for i in range(n - s):
@@ -77,7 +84,7 @@ def full_multi_control_rotation_gate(s: int, j: int, n: int, circ: braket.circui
     @param circ: quantum circuit to operate on
     @param amplitude_array: the amplitude value vector for wave function array vector
     @param phase_array: the phase value vector for wave function array vector
-    @tolerance: a float number to determine if a number is close enough to zero in order to be treated as zero
+    @param tolerance: a float number to determine if a number is close enough to zero in order to be treated as zero
     """
     ry_rotation_angle = compute_ry_rotation_angle(s, j, amplitude_array)
     rz_rotation_angle = compute_rz_rotation_angle(s, j, phase_array)

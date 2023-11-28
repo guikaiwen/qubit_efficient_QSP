@@ -26,11 +26,29 @@ def round_to_three_significant_digits(numbers_vec: list, digit: int) -> np.ndarr
 
 
 def row_to_column_vector(row_vector: np.ndarray) -> np.ndarray:
-    """Converts a 1D row vector to a 1D column vector."""
+    """
+    Function to converts a 1D row vector to a 1D column vector
+    
+    @param row_vector: input row vector
+    
+    @return the converted column vector
+    """
     if not isinstance(row_vector, np.ndarray) or row_vector.ndim != 1:
         raise ValueError("Input must be a 1D NumPy array (row vector).")
 
     return row_vector.reshape(-1, 1)
+
+
+def nicer_array_display(input_vec: np.ndarray, digit: int) -> np.ndarray:
+    """
+    Function to combine the effect of both digit trimming and row to column conversion
+    
+    @param input_vec: input row vector to process
+    @param digit: targetting number of digits to round to
+    
+    @return the processed column vector
+    """
+    return row_to_column_vector(round_to_three_significant_digits(input_vec, digit))
 
 
 def generate_normalized_real_array(n: int) -> np.ndarray:
