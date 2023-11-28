@@ -8,15 +8,15 @@ $$U_{\mathrm{QSP}} |0^n\rangle = |\psi\rangle = \frac{1}{\lVert \mathbf{x}\rVert
 
 The quantum circuit consists of a sequence of multi-control Ry and multi-control Rz gates, using the method described by Mottonen et al. 2004 (https://arxiv.org/pdf/quant-ph/0407010.pdf).
 
-1. You can directly call the QSP function `qsp_qubit_eff` (implemented in `qsp_circ_construction_qubit_efficient.py`) to prepare an arbitrary quantum state, as demonstrated in `QSP_Method_Call_Demo.ipynb`. That is, the function prepares the wave function state vector.
+1. You can directly call the QSP function `qsp_qubit_eff` (implemented in `qsp_circ_construction_qubit_efficient.py`) to prepare an arbitrary quantum state, as demonstrated in `QSP_method_call_demo.ipynb`. That is, the function prepares the wave function state vector.
 
-2. We also provide a detailed implementation walkthrough in `[Detailed Implementation] QSP.ipynb`. We recommend first-time readers start with the walk-through in `QSP_Method_Call_Demo.ipynb`.
+2. We also provide a detailed implementation walkthrough in `QSP_detailed_implementation.ipynb`. We recommend first-time readers start with the walk-through in `QSP_method_call_demo.ipynb`.
 
-3. We provide a performance comparison of our implementation against the existing Qiskit's `.initialize` function and the Braket's unitary operation in `Comparison_to_Other_Methods.ipynb`.
+3. We compare our implementation performance against the existing Qiskit's `.initialize` function and the Braket's unitary operation in `Comparison_to_Other_Methods.ipynb`.
 
 <img width="756" alt="Screenshot 2023-11-08 at 4 11 17 PM" src="https://github.com/guikaiwen/qubit_efficient_QSP/assets/24789128/8dfcc84d-40c8-42d2-9f36-d9dbbd931f71">
 
-4. We provide some performance testings and complexity analysis of sparse state preparation for Braket in `Sparse_state_cost_benchmark.ipynb` and for Qiskit in `Qiskit_Sparse_State_Gate_Count.ipynb`.
+4. We provide some performance testings and complexity analysis of sparse state preparation for Braket in braket_sparse_state_cost_benchmark.ipynb` and for Qiskit in `qiskit_sparse_state_gate_count.ipynb`.
 
 -------------------------------
 ## Prerequisites
