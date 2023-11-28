@@ -25,15 +25,13 @@ The Amazon Braket Python SDK can be installed with pip on your local machine as 
 ```ruby
 pip install amazon-braket-sdk
 ```
-See https://pypi.org/project/amazon-braket-sdk/ for more installation details.
 
 The IBM Qiskit Python SDK can be installed with pip on your local machine as follows:
 ```ruby
 pip install qiskit
 ```
-See https://qiskit.org/documentation/getting_started.html for more installation details.
 
-See `requirements.txt` for other required python packages.
+See `requirements.txt` for other required Python packages.
 
 -------------------------------
 The current QSP operation demonstrated in this repo has the following circuit complexity numbers:
