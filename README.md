@@ -1,6 +1,6 @@
 # qubit_efficient_QSP
 
-This repo provides implementations and performance testings for quantum state preparation circuits using a qubit-efficient protocol (no ancilla qubit required). 
+This repo provides implementations and performance testings for quantum state preparation circuits using a qubit-efficient protocol (no ancilla qubit required) suitable for circuit simulators. 
 
 That is, given an arbitrary list of $2^n$ amplitudes, we create a quantum circuit that creates the corresponding $n$-qubit state:
 
