@@ -8,7 +8,7 @@ $$U_{\mathrm{QSP}} |0^n\rangle = |\psi\rangle = \frac{1}{\lVert \mathbf{x}\rVert
 
 The quantum circuit consists of a sequence of multi-control Ry and multi-control Rz gates, using the method described by Mottonen et al. 2004 (https://arxiv.org/pdf/quant-ph/0407010.pdf).
 
-1. You can directly call the QSP function `qsp_qubit_eff` (implemented in `qsp_circ_construction_qubit_efficient.py`) to prepare an arbitrary quantum state, as demonstrated in `QSP_method_call_demo.ipynb`. That is, the function prepares the wave function state vector.
+1. You can directly call the QSP function `qsp_qubit_eff` (implemented in `qsp_circ_construction_qubit_efficient.py`) to prepare an arbitrary quantum state, as demonstrated in `QSP_method_call_demo.ipynb`.
 
 2. We also provide a detailed implementation walkthrough in `QSP_detailed_implementation.ipynb`. We recommend first-time readers start with the walk-through in `QSP_method_call_demo.ipynb`.
 
