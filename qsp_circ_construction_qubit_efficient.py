@@ -10,7 +10,7 @@ import math
 
 def compute_rz_rotation_angle(s: int, j: int, phase_array: np.ndarray) -> float:
     """
-    Function to compute a particular alpha_{s,j} angle according to the equation in
+    Function to compute a particular \alpha_{s,j} angle according to the equation in
     https://github.com/guikaiwen/qubit_efficient_QSP/blob/main/QSP_detailed_implementation.ipynb
     
     (Note that this implementation uses Numpy's vectorization for better classical paralellization. 
@@ -34,7 +34,7 @@ def compute_rz_rotation_angle(s: int, j: int, phase_array: np.ndarray) -> float:
 
 def compute_ry_rotation_angle(s: int, j: int, amplitude_array: np.ndarray) -> float:
     """
-    Function to compute a particular beta_{s,j} angle according to the equation in
+    Function to compute a particular \beta_{s,j} angle according to the equation in
     https://github.com/guikaiwen/qubit_efficient_QSP/blob/main/QSP_detailed_implementation.ipynb
     
     (Note that this implementation uses Numpy's vectorization for better classical paralellization. 
