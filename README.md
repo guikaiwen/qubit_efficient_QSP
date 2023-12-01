@@ -36,7 +36,7 @@ See `requirements.txt` for other required Python packages and corresponding vers
 -------------------------------
 The current QSP operation demonstrated in this repo has the following circuit complexity numbers:
 
-A. $O(N)$ depth using generalized multi-controlled Ry gates
+A. $O(N)$ depth using generalized multi-controlled rotation gates
 
 B. No additional ancilla qubits required (total of $O(\log(N))$ qubits)
 
