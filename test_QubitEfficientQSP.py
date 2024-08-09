@@ -28,7 +28,7 @@ class TestQubitEfficientQSP(unittest.TestCase):
         braket_device = LocalSimulator() # define the simulator
         circuit.state_vector() # convert the circuit to state vector
         braket_state_vector_result = braket_device.run(circuit, shots=0).result().values[0] # extract the result
-        vec_norm = np.abs(np.dot(self.input_array, np.conj(braket_state_vector_result)))
+        vec_norm = np.abs(np.dot(self.input_array, np.conj(braket_state_vector_result))) # compute |<psi'|psi>| since there might be global phase diff
         np.testing.assert_almost_equal(vec_norm, 1.0)
 
 if __name__ == '__main__':

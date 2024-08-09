@@ -28,7 +28,7 @@ class QuantumStatePreparation:
         assert abs(l2_norm - 1) < 1e-7, "Wave function array needs to be normalized."
 
         self._n = int(np.log2(self._array_len))
-        self.circ = Circuit()
+        self._circ = Circuit()
 
     def get_amplitude_array(self) -> np.ndarray:
         """Return the amplitude array for debugging purposes."""

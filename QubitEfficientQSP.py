@@ -19,7 +19,7 @@ class QubitEfficientQSP(QuantumStatePreparation):
         binary_j = bin(j - 1).replace("0b", "").zfill(self._n - s)
         for i in range(self._n - s):
             if int(binary_j[i]) == 0:
-                self.circ.x(i)
+                self._circ.x(i)
 
     def _full_multi_control_rotation_gate(self, s: int, j: int, tolerance: float = 1e-100):
         """
@@ -40,10 +40,10 @@ class QubitEfficientQSP(QuantumStatePreparation):
             self._x_gate_sequence(s, j)
         
         if np.abs(ry_rotation_angle) > tolerance:
-            self.circ.ry(angle=ry_rotation_angle, target=target_bit_index, control=control_qubit_list)
+            self._circ.ry(angle=ry_rotation_angle, target=target_bit_index, control=control_qubit_list)
         
         if np.abs(rz_rotation_angle) > tolerance:
-            self.circ.rz(angle=rz_rotation_angle, target=target_bit_index, control=control_qubit_list)
+            self._circ.rz(angle=rz_rotation_angle, target=target_bit_index, control=control_qubit_list)
         
         if np.abs(ry_rotation_angle) > tolerance or np.abs(rz_rotation_angle) > tolerance:
             self._x_gate_sequence(s, j)
@@ -58,4 +58,4 @@ class QubitEfficientQSP(QuantumStatePreparation):
         for s in range(self._n, 0, -1):
             for j in range(2 ** (self._n - s), 0, -1):
                 self._full_multi_control_rotation_gate(s, j)
-        return self.circ
+        return self._circ
