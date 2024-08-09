@@ -1,8 +1,3 @@
-import braket
-from braket.circuits import Circuit
-from braket.aws import AwsDevice
-from braket.devices import LocalSimulator
-
 import numpy as np
 import random
 
