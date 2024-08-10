@@ -1,3 +1,5 @@
+# to run all test, type the following code in Terminal: python3 -m unittest discover
+
 import unittest
 import numpy as np
 from QuantumStatePreparation import QuantumStatePreparation
