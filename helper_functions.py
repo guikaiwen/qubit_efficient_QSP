@@ -1,6 +1,9 @@
 import numpy as np
 import random
 
+import time
+import timeit
+
 
 def round_to_three_significant_digits(numbers_vec: list, digit: int) -> np.ndarray:
     """
@@ -109,3 +112,21 @@ def binary_to_decimal(binary: str) -> int:
         decimal += int(digit) * (2 ** power)
         power += 1
     return decimal
+
+
+def measure_time(obj, method_name, *args, **kwargs):
+    # Get the method from the object
+    method = getattr(obj, method_name)
+
+    # Measure CPU start time
+    start_cpu_time = time.process_time()
+
+    # Call the method
+    method(*args, **kwargs)
+
+    # Measure CPU end time
+    end_cpu_time = time.process_time()
+
+    cpu_time = end_cpu_time - start_cpu_time
+
+    return cpu_time
