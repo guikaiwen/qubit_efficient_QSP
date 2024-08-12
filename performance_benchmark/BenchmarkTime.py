@@ -32,9 +32,9 @@ class BenchmarkTime():
         self._array_len = len(normalized_complex_array)
         self._n = int(np.log2(self._array_len))
 
-        self.braket_circ = Circuit()
-        self.qiskit_circ = QuantumCircuit(self._n)
-        self.braket_circ_from_unitary_alt = Circuit()
+        self._braket_circ = Circuit()
+        self._qiskit_circ = QuantumCircuit(self._n)
+        self._braket_circ_from_unitary_alt = Circuit()
 
     def setup_braket(self):
         qsp_braket = QubitEfficientQSP(self._normalized_complex_array) # construct the QSP object
@@ -42,26 +42,26 @@ class BenchmarkTime():
 
     def run_braket(self):
         braket_device = LocalSimulator() # define the simulator
-        self.braket_circ.state_vector() # convert the circuit to state vector
-        braket_state_vector_result = braket_device.run(self.braket_circ, shots=0).result().values[0] # extract the result
+        self._braket_circ.state_vector() # convert the circuit to state vector
+        braket_state_vector_result = braket_device.run(self._braket_circ, shots=0).result().values[0] # extract the result
         print(nicer_array_display(braket_state_vector_result, 3)) # print out the resulted state vector
 
     def setup_qiskit(self):
-        self.qiskit_circ.initialize(self._normalized_complex_array, range(self._n))
+        self._qiskit_circ.initialize(self._normalized_complex_array, range(self._n))
 
     def run_qiskit_statevector(self):
         qiskit_backend = BasicAer.get_backend('statevector_simulator')
-        job = execute(self.qiskit_circ, qiskit_backend)
+        job = execute(self._qiskit_circ, qiskit_backend)
         qiskit_state_vector_result = job.result().get_statevector()
         print(nicer_array_display(qiskit_state_vector_result, 3)) # print out the resulted state vector
 
     def setup_braket_unitary(self):
-        braket_qsp_circ_unitary_matrix_alt = self.braket_circ.state_vector().to_unitary()
-        self.braket_circ_from_unitary_alt.unitary(matrix=braket_qsp_circ_unitary_matrix_alt, targets=range(self._n))
+        braket_qsp_circ_unitary_matrix_alt = self._braket_circ.state_vector().to_unitary()
+        self._braket_circ_from_unitary_alt.unitary(matrix=braket_qsp_circ_unitary_matrix_alt, targets=range(self._n))
 
     def run_braket_unitary(self):
         braket_device = LocalSimulator()
-        self.braket_circ_from_unitary_alt.state_vector() # convert the circuit to state vector
-        braket_result_from_unitary_alt = braket_device.run(self.braket_circ_from_unitary_alt, shots=0).result().values[0] # extract the result
+        self._braket_circ_from_unitary_alt.state_vector() # convert the circuit to state vector
+        braket_result_from_unitary_alt = braket_device.run(self._braket_circ_from_unitary_alt, shots=0).result().values[0] # extract the result
         print(nicer_array_display(braket_result_from_unitary_alt, 3)) # print out the resulted state vector
 
