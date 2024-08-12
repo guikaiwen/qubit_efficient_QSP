@@ -1,6 +1,5 @@
 import unittest
 import numpy as np
-from QuantumStatePreparation import QuantumStatePreparation
 from QubitEfficientQSP import QubitEfficientQSP
 
 from braket.devices import LocalSimulator

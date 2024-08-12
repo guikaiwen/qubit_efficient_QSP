@@ -2,7 +2,6 @@ import numpy as np
 import random
 
 import time
-import timeit
 
 
 def round_to_three_significant_digits(numbers_vec: list, digit: int) -> np.ndarray:

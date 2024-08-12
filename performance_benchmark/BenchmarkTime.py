@@ -9,7 +9,6 @@ from braket.devices import LocalSimulator
 from qiskit import QuantumCircuit
 from qiskit.execute_function import execute
 from qiskit import BasicAer
-from qiskit import transpile
 
 # import functions from parent folder
 import sys
