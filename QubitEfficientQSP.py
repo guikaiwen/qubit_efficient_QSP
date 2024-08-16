@@ -8,6 +8,16 @@ class QubitEfficientQSP(QuantumStatePreparation):
     Inherits from QuantumStatePreparation.
     """
 
+    def __init__(self, normalized_complex_array: np.ndarray):
+        """
+        Initialize the QubitEfficientQSP with a normalized complex array.
+
+        Args:
+            normalized_complex_array (np.ndarray): A normalized complex array representing the quantum state.
+        """
+        super().__init__(normalized_complex_array)
+        self._circ = Circuit()
+
     def _x_gate_sequence(self, s: int, j: int):
         """
         Add X gates to emulate the anti-control operations.

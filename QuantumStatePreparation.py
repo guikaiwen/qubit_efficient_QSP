@@ -1,5 +1,4 @@
 import numpy as np
-from braket.circuits import Circuit
 
 class QuantumStatePreparation:
     """
@@ -18,17 +17,16 @@ class QuantumStatePreparation:
         self._amplitude_array = np.abs(normalized_complex_array)
         self._phase_array = np.angle(normalized_complex_array)
         self._array_len = len(normalized_complex_array)
+        self._n = int(np.log2(self._array_len))
 
         # Validate that the array length is a power of 2
-        assert self._array_len > 0 and (self._array_len & (self._array_len - 1)) == 0, \
-            "Wave function array needs to have length as power of 2. Consider padding it with zeros."
+        if not (self._array_len > 0 and (self._array_len & (self._array_len - 1)) == 0):
+            raise ValueError("Wave function array needs to have length as power of 2. Consider padding it with zeros.")
         
         # Validate that the array is normalized
         l2_norm = np.linalg.norm(normalized_complex_array, ord=2)
-        assert abs(l2_norm - 1) < 1e-7, "Wave function array needs to be normalized."
-
-        self._n = int(np.log2(self._array_len))
-        self._circ = Circuit()
+        if abs(l2_norm - 1) >= 1e-7:
+            raise ValueError("Wave function array needs to be normalized.")
 
     def get_amplitude_array(self) -> np.ndarray:
         """Return the amplitude array for debugging purposes."""
